@@ -71,13 +71,21 @@ var calculadora=(function (num1,num2) {
   });
 
 
-n1.onmousedown =function () {
-    n1.style.width= "20%";
-}
+// n1.onmousedown =function () {
+//     n1.style.width= "20%";
+// }
+//
+// n1.onmouseup =function () {
+//     n1.style.width= "30%";
+// }
 
-n1.onmouseup =function () {
-    n1.style.width= "30%";
-}
+
+n1.addEventListener('mousedown', function () {
+n1.setAttribute("style", "transform:scale(0.95,0.95)");
+})
+n1.addEventListener('mouseup', function () {
+n1.setAttribute("style", "transform:scale(1,1)");
+})
 
 n1.onclick = function() {
   escribir(this);
