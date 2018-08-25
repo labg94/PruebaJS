@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <span class='node closed' id='1' onclick="doExpandCollapse(this)">a</span>
+<span class='node closed' id='2' onclick="doExpandCollapse(this)">bbb</span>
+
+
+<script type="text/javascript">
+function doExpandCollapse(element){
+  console.log(element.id);
+}
+
+var el = document.getElementsByClassName('node closed');
+for (var i=0;i<el.length; i++) {
+  console.log('test');
+  el[i].click();
+}
+
+</script>
+  </body>
+</html>
