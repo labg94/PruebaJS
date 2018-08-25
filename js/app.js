@@ -19,5 +19,30 @@ var resta = document.getElementById("menos");
 var multiplicacion = document.getElementById("por");
 var division = document.getElementById("dividido");
 
+var calculadora=(function (num1,num2) {
 
-}
+    var resultado;
+
+    function actualizarResultado(nuevoResultado) {
+      resultado = nuevoResultado;
+    }
+
+    return {
+      sumar: function() {
+        var nuevoResultado= num1+num2;
+        actualizarResultado(nuevoResultado)
+      },
+      resta: function() {
+        var nuevoResultado= num1-num2;
+        actualizarResultado(nuevoResultado)
+      },
+      multiplicacion: function() {
+        var nuevoResultado= num1*num2;
+        actualizarResultado(nuevoResultado)
+      },
+      division: function() {
+        var nuevoResultado= num1/num2;
+        actualizarResultado(nuevoResultado)
+      }
+    }
+  })
