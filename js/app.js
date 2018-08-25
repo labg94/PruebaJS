@@ -18,35 +18,58 @@ var suma = document.getElementById("mas");
 var resta = document.getElementById("menos");
 var multiplicacion = document.getElementById("por");
 var division = document.getElementById("dividido");
-
+var num1=0;
+var num2;
+var valorTotal;
+var su=false;
+var re=false;
+var mu=false;
+var di=false;
 var calculadora=(function (num1,num2) {
 
-    var resultado;
 
+    console.log("numero1"+num1);
+    console.log("numero2"+num2);
     function actualizarResultado(nuevoResultado) {
-      resultado = nuevoResultado;
+      valorTotal = nuevoResultado;
     }
 
     return {
       sumar: function() {
-        var nuevoResultado= num1+num2;
+        su=true;
+        re=false;
+        mu=false;
+        di=false;
+        var nuevoResultado= Number(num1)+Number(num2);
         actualizarResultado(nuevoResultado)
       },
       resta: function() {
-        var nuevoResultado= num1-num2;
+        su=false;
+        re=true;
+        mu=false;
+        di=false;
+        var nuevoResultado=  Number(num1)-Number(num2);
         actualizarResultado(nuevoResultado)
       },
       multiplicacion: function() {
-        var nuevoResultado= num1*num2;
+        su=false;
+        re=false;
+        mu=true;
+        di=false;
+        var nuevoResultado=  Number(num1)*Number(num2);
         actualizarResultado(nuevoResultado)
       },
       division: function() {
-        var nuevoResultado= num1/num2;
+        su=false;
+        re=false;
+        mu=false;
+        di=true;
+        var nuevoResultado=  Number(num1)/Number(num2);
         actualizarResultado(nuevoResultado)
       }
     }
-  })
-=======
+  });
+
 n1.onclick = function() {
   escribir(this);
 }
@@ -77,45 +100,78 @@ n9.onclick = function() {
 n0.onclick = function() {
   escribir(this)
 }
-
 on.onclick = function() {
   pantalla.innerHTML = 0
   valorTotal = 0;
 }
 
 suma.onclick = function() {
-  resultado()
-  sumar()
+  numeros();
+  limpiar();
+  calculadora(num1,num2).sumar();
 }
-
 resta.onclick = function() {
-  resultado()
-  restar()
+  numeros();
+  limpiar();
+  calculadora(num1,num2).resta();
 }
 multiplicacion.onclick = function() {
-  resultado()
-  multiplicar()
+  numeros();
+  limpiar();
+  calculadora(num1,num2).multiplicacion();
 }
 division.onclick = function() {
-  resultado()
-  dividir()
+  numeros();
+  limpiar();
+  calculadora(num1,num2).division();
 }
-
 igual.onclick = function() {
-  resultado()
+
+  if(su){
+    numeros();
+    limpiar();
+    calculadora(num1,num2).sumar();
+  }
+  if(re){
+    numeros();
+    limpiar();
+    calculadora(num1,num2).resta();
+  }
+  if(mu){
+    numeros();
+    limpiar();
+    calculadora(num1,num2).multiplicacion();
+  }
+  if(di){
+    numeros();
+    limpiar();
+    calculadora(num1,num2).division();
+  }
+  num1=0;
+  num2=null;
   mostrarResultado()
 }
-
 punto.onclick = function() {
   var existe = pantalla.innerHTML.indexOf(".");
   if (existe == -1) {
     pantalla.innerHTML += "."
   }
 }
-
 signo.onclick = function() {
   pantalla.innerHTML = pantalla.innerHTML * -1
 }
+
+function numeros() {
+if(valorInicial!=""){
+  num2=valorInicial;
+  valorInicial="";
+}
+if(num1==0){
+  num1=num2;
+  num2="";
+}
+}
+
 
 function escribir(obj) {
   var num = obj.getAttribute("id");
@@ -134,8 +190,6 @@ function escribir(obj) {
 function mostrarResultado() {
   pantalla.innerHTML = valorTotal;
 }
-
-
 
 function limpiar() {
   valorInicial = "";
