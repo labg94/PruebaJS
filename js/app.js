@@ -19,6 +19,18 @@ var resta = document.getElementById("menos");
 var multiplicacion = document.getElementById("por");
 var division = document.getElementById("dividido");
 
+
+
+
+
+
+
+
+
+
+
+
+
 var calculadora=(function (num1,num2) {
 
     var resultado;
