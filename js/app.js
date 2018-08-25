@@ -27,9 +27,9 @@ var mu=false;
 var di=false;
 var calculadora=(function (num1,num2) {
 
-
-    console.log("numero1"+num1);
-    console.log("numero2"+num2);
+    //
+    // console.log("numero1"+num1);
+    // console.log("numero2"+num2);
     function actualizarResultado(nuevoResultado) {
       valorTotal = nuevoResultado;
     }
@@ -69,6 +69,15 @@ var calculadora=(function (num1,num2) {
       }
     }
   });
+
+
+n1.onmousedown =function () {
+    n1.style.width= "20%";
+}
+
+n1.onmouseup =function () {
+    n1.style.width= "30%";
+}
 
 n1.onclick = function() {
   escribir(this);
@@ -150,6 +159,7 @@ igual.onclick = function() {
   num1=0;
   num2=null;
   mostrarResultado()
+  valorInicial=""
 }
 punto.onclick = function() {
   var existe = pantalla.innerHTML.indexOf(".");
@@ -175,7 +185,7 @@ if(num1==0){
 
 function escribir(obj) {
   var num = obj.getAttribute("id");
-  if (pantalla.innerHTML == "0") {
+  if (pantalla.innerHTML == "0" ||valorInicial=="") {
     pantalla.innerHTML = num;
     valorInicial = num
   } else if (pantalla.innerHTML.length < 8) {
