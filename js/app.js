@@ -140,7 +140,6 @@ var multi = false;
 var divi = false;
 
 function limpiar() {
-  valorInicial = "";
   pantalla.innerHTML = "";
 }
 
@@ -173,6 +172,7 @@ function multiplicar() {
   suma = false;
   divi = false;
   multi = true;
+  console.log("@antes de todo: " +valorTotal)
   if (valorTotal == 0) {
     valorTotal = valorInicial;
   } else {
@@ -191,6 +191,7 @@ function dividir() {
   if (valorTotal == 0) {
     console.log("@deberia ser 0: "+valorTotal)
     valorTotal = valorInicial;
+    valorInicial="";
     console.log("@deberia ser ahora el valor inicial:"+valorTotal+"\nvalor inicial: "+ valorInicial)
   } else {
     console.log("@Empezo la division"+ valorTotal+"\nentre: "+valorInicial);
