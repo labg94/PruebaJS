@@ -19,19 +19,6 @@ var resta = document.getElementById("menos");
 var multiplicacion = document.getElementById("por");
 var division = document.getElementById("dividido");
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
 var calculadora=(function (num1,num2) {
 
     var resultado;
@@ -144,101 +131,13 @@ function escribir(obj) {
   return valorInicial;
 }
 
-function resultado() {
-  if (suma) {
-    sumar();
-    suma = false;
-  }
-  if (resta) {
-    restar();
-    resta = false;
-  }
-  if (multi) {
-    multiplicar();
-    multi = false;
-  }
-  if (divi) {
-    dividir();
-    divi = false;
-  }
-
-  if (valorTotal == 0) {
-    valorTotal = valorInicial;
-  }
-
-
-}
-
 function mostrarResultado() {
   pantalla.innerHTML = valorTotal;
 }
 
 
-var valorTotal = 0;
-var suma = false;
-var resta = false;
-var multi = false;
-var divi = false;
 
 function limpiar() {
   valorInicial = "";
   pantalla.innerHTML = "";
 }
-
-
-function sumar() {
-  resta = false;
-  multi = false;
-  divi = false;
-  suma = true;
-  valorTotal += Number(valorInicial);
-  limpiar();
-}
-
-function restar() {
-  suma = false;
-  multi = false;
-  divi = false;
-  resta = true;
-  if (valorTotal == 0) {
-    valorTotal = valorInicial;
-  } else {
-    valorTotal -= Number(valorInicial);
-  }
-  limpiar();
-
-}
-
-function multiplicar() {
-  resta = false;
-  suma = false;
-  divi = false;
-  multi = true;
-  if (valorTotal == 0) {
-    valorTotal = valorInicial;
-  } else {
-    valorTotal *= Number(valorInicial);
-  }
-  limpiar();
-
-}
-
-function dividir() {
-  resta = false;
-  multi = false;
-  suma = false;
-  divi = true;
-  console.log("@antes de todo: " +valorTotal)
-  if (valorTotal == 0) {
-    console.log("@deberia ser 0: "+valorTotal)
-    valorTotal = valorInicial;
-    console.log("@deberia ser ahora el valor inicial:"+valorTotal+"\nvalor inicial: "+ valorInicial)
-  } else {
-    console.log("@Empezo la division"+ valorTotal+"\nentre: "+valorInicial);
-    valorTotal /= Number(valorInicial);
-    console.log("@valorTotal despues de la division: "+ valorTotal+"\nvalor inicial luego de la division: " +valorInicial);
-  }
-  limpiar();
-
-}
->>>>>>> parent of be2b733... hare un cambio nuevo a ver
