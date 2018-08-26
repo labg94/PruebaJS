@@ -79,13 +79,22 @@ var calculadora=(function (num1,num2) {
 //     n1.style.width= "30%";
 // }
 
+function clicks(obj) {
+  obj.addEventListener('mousedown', function () {
+  obj.setAttribute("style", "transform:scale(0.95,0.95)");
+  })
 
-n1.addEventListener('mousedown', function () {
-n1.setAttribute("style", "transform:scale(0.95,0.95)");
-})
-n1.addEventListener('mouseup', function () {
-n1.setAttribute("style", "transform:scale(1,1)");
-})
+  obj.addEventListener('mouseup', function () {
+  obj.setAttribute("style", "transform:scale(1,1)");
+  })
+}
+
+var teclas= document.getElementsByClassName('tecla')
+
+for(i=0;i<teclas.length;i++){
+  clicks(teclas[i])
+}
+
 
 n1.onclick = function() {
   escribir(this);
@@ -206,7 +215,8 @@ function escribir(obj) {
 }
 
 function mostrarResultado() {
-  pantalla.innerHTML = valorTotal;
+
+  pantalla.innerHTML = valorTotal.toString().substring(0,8);
 }
 
 function limpiar() {
