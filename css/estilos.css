@@ -9,7 +9,7 @@ body{
 .fondo{
   position: relative;
   width: 100%;
-  height: 790px;
+  height: 800px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
